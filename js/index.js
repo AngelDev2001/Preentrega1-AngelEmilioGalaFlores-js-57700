@@ -1,51 +1,59 @@
-let addProduct = prompt("¿Qué producto desea comprar?\n1. Arroz\n2. Azúcar\n3. Avena");
+let userInput = +prompt("¿Qué producto desea comprar?\n1. Arroz\n2. Azúcar\n3. Avena\n(Ingrese los números)");
 
-const products = [
+const PRODUCTS = [
   {
     id: 1,
     name: "Arroz",
-    price: 3.5
+    price: 3.5,
   },
   {
     id: 2,
     name: "Azúcar",
-    price: 2
+    price: 2,
   },
   {
     id: 3,
     name: "Avena",
-    price: 1.8
+    price: 1.8,
   },
 ];
 
-const cart = [];
+const CART = [];
 
-const response = () => {
-    products.find(product => {
-        if(product.id == addProduct){
-            alert(`Usted desea comprar:\n- ${product.name} = S/ ${product.price.toFixed(2)}`);
-            let question = prompt("1. Desea seguir comprando\n2. Realizar el pago");
-            question == "1" ? prompt("¿Qué producto desea comprar?\n1. Arroz\n2. Azúcar\n3. Avena") :  alert(`Usted desea comprar:\n- ${product.name} = S/ ${product.price.toFixed(2)}`);;
-            let moneyConsultation = +prompt("¿Con cuánto dinero va a cancelar?");
-            restMoney(moneyConsultation, product);
-        }
-    })
+const addCart = (userInput) => {
+  const newProduct = PRODUCTS.find((product) => product.id === userInput);
+  CART.push(newProduct);
+
+  let question = +prompt("1. Desea seguir comprando\n2. Realizar el pago");
+  buyOrPay(question);
 };
 
-const restMoney = (moneyConsultation, product) => {
-    console.log(product);
-    let finalPrice = moneyConsultation - product.price;
-    alert(`Su vuelto es: S/ ${finalPrice.toFixed(2)}`);
-}
-
-response();
-
 const buyOrPay = (question) => {
+  if (question === 1) {
+    userInput = +prompt("¿Qué producto desea comprar?\n1. Arroz\n2. Azúcar\n3. Avena\n(Ingrese los números)");
+    addCart(userInput);
+  } else if (question === 2) {
+    CART.map((product) => {
+      alert(
+        `Usted desea comprar:\n- ${product.name} = S/ ${product.price.toFixed(2)}`
+      );
+    });
 
-  addProduct = prompt("¿Qué producto desea comprar?\n1. Arroz\n2. Azúcar\n3. Avena")
+    const totalPrice = CART.reduce(
+      (acumulator, product) => acumulator + product.price,
+      0
+    );
 
-  cart.push(addProduct)
+    alert(`El total a pagar es: S/ ${totalPrice.toFixed(2)}`);
 
-}
+    let userDinner = +prompt("Ingrese su dinero:");
+    let calculo = userDinner - totalPrice;
 
+    alert(`Su vuelto es: S/ ${calculo.toFixed(2)}.\nGracias por su compra :)`);
+  }else{
+    let question = +prompt("1. Desea seguir comprando\n2. Realizar el pago");
+    buyOrPay(question);
+  }
+};
 
+addCart(userInput);
