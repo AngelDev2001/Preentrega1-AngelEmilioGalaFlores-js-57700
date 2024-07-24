@@ -1,21 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <style>
-        h1{
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 2.5em;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/2dfaccd984.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="root">
+      <header class="header">
+        <h1>Zap AG</h1>
+        <div class="header__search">
+          <input type="search" placeholder="Buscar..." />
+        </div>
+        <nav class="header__nav">
+          <ul>
+            <li><a href="/"></a>Inicio</li>
+            <li><a href="./pages/shop.html"></a>Tienda</li>
+            <li><a href="./pages/about-us.html"></a>Nosotros</li>
+            <li><a href="./pages/contact.html"></a>Contacto</li>
+            <li><a href="./pages/blog.html"></a>Blog</li>
+          </ul>
+          <div class="header__cart-icon btn-show-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cantidad-productos-carrito">0</span>
+          </div>
+        </nav>
+        <div class="cart">
+          <div class="cart-content">
+            <div class="cart-content__header">
+              <i class="fa-solid fa-angle-right btn-close-cart"></i>
+              <h3>Carrito</h3>
+            </div>
+            <div class="cart__products">
+              <!-- <article class="product">
+                <div class="product-image">
+                  <img
+                    src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png"
+                    alt=""
+                  />
+                </div>
+                <div>
+                  <div class="product-text">
+                    <span>Nombre del producto</span>
+                    <span>S/ 350.00</span>
+                  </div>
+                  <div class="quantity">
+                    <button>-</button>
+                    <input type="text">
+                    <button>+</button>
+                  </div>
+                </div>
+              </article> -->
+            </div>
+            <div class="total">Total: <span class="total-pagar"></span></div>
+            <a href="./pages/cart.html">Ir a carrito</a>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="hero">
+          <img
+            src="https://www.publimetro.com.mx/resizer/4YhjFm3Pz3orDP54HeAvRkAILT0=/arc-photo-metroworldnews/arc2-prod/public/BUSBKP35CNA4LOKXUPJEGCIXUE.jpg"
+            alt=""
+          />
+          <h2>¡Corre Hacia Tus Sueños con las Mejores Zapatillas!</h2>
+        </section>
+        <section class="main__products-category-section"></section>
+        <section class="main__products-section">
+          <h3>Tendencias de la Semana</h3>
+          <div class="main__products">
+            <!-- <article class="main__product">
+              <div class="main__product-image">
+                <img
+                  src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png"
+                  alt=""
+                />
+              </div>
+              <div class="main__product-text">
+                <span>Nombre del producto</span>
+                <span>S/ 350.00</span>
+                <button>Agregar al carrito</button>
+              </div>
+            </article>
+            <article class="main__product">
+              <div class="main__product-image">
+                <img
+                  src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png"
+                  alt=""
+                />
+              </div>
+              <div class="main__product-text">
+                <span>Nombre del producto</span>
+                <span>S/ 350.00</span>
+                <button>Agregar al carrito</button>
+              </div>
+            </article>
+            <article class="main__product">
+              <div class="main__product-image">
+                <img
+                  src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png"
+                  alt=""
+                />
+              </div>
+              <div class="main__product-text">
+                <span>Nombre del producto</span>
+                <span>S/ 350.00</span>
+                <button>Agregar al carrito</button>
+              </div>
+            </article>
+            <article class="main__product">
+              <div class="main__product-image">
+                <img
+                  src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png"
+                  alt=""
+                />
+              </div>
+              <div class="main__product-text">
+                <span>Nombre del producto</span>
+                <span>S/ 350.00</span>
+                <button>Agregar al carrito</button>
+              </div>
+            </article> -->
+          </div>
+        </section>
+      </main>
+      <footer class="footer"></footer>
+    </div>
 
-    <h1>Primera Pre Entrega</h1>
-    
     <script src="./js/index.js"></script>
-</body>
+  </body>
 </html>

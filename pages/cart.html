@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/2dfaccd984.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="root">
+      <header class="header">
+        <h1>Zap AG</h1>
+        <div class="header__search">
+          <input type="search" placeholder="Buscar..." />
+        </div>
+        <nav class="header__nav">
+          <ul>
+            <li><a href="/"></a>Inicio</li>
+            <li><a href="/shop"></a>Tienda</li>
+            <li><a href="/about-us"></a>Nosotros</li>
+            <li><a href="/contact"></a>Contacto</li>
+            <li><a href="/blog"></a>Blog</li>
+          </ul>
+          <div class="header__cart-icon btn-show-cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cantidad-productos-carrito">0</span>
+          </div>
+        </nav>
+        <div class="cart">
+          <div class="cart-content">
+            <div class="cart-content__header">
+              <i class="fa-solid fa-angle-right btn-close-cart"></i>
+              <h3>Carrito</h3>
+            </div>
+            <div class="cart__products"></div>
+            <div class="total">Total: <span class="total-pagar"></span></div>
+            <a href="./pages/cart.html">Ir a carrito</a>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <section class="shopping-cart-container">
+          <div class="products-container">
+            <h2>Mi carrito</h2>
+            <div class="products"></div>
+          </div>
+          <div class="order-summary">
+            <h2>Resumen del pedido</h2>
+            <div>
+              <span>Subtotal</span>
+              <div>
+                <span>S/</span>
+                <span class="order-summary__subtotal">25.00</span>
+              </div>
+            </div>
+            <div>
+              <span>Total</span>
+              <div>
+                <span>S/</span>
+                <span class="order-summary__total">25.00</span>
+              </div>
+            </div>
+            <button>Finalizar Compra</button>
+          </div>
+        </section>
+      </main>
+      <footer class="footer"></footer>
+    </div>
+    <script src="../js/index.js"></script>
+  </body>
+</html>
