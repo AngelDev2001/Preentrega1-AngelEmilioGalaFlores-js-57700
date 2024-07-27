@@ -1,12 +1,14 @@
-const btnShowCart = document.querySelector(".btn-show-cart");
+const btnShowNavbar = document.querySelector(".btn-show-navbar");
+const btnCloseNavbar = document.querySelector(".btn-close-navbar");
+const navbar = document.querySelector(".navbar");
+
+const btnShowCart = document.querySelectorAll(".btn-show-cart");
 const btnCartClose = document.querySelector(".btn-close-cart");
 
 const cartContainer = document.querySelector(".cart");
 const cartProductsContainer = document.querySelector(".cart__products");
 
-const quantityProductsCart = document.querySelector(
-  ".cantidad-productos-carrito"
-);
+const quantityProductsCart = document.querySelectorAll(".quantity-products-cart");
 const productsSection = document.querySelector(".main__products") || [];
 const totalPagar = document.querySelector(".total-pagar");
 const contenedorProductosPage = document.querySelector(
@@ -16,12 +18,22 @@ const contenedorProductosPage = document.querySelector(
 const subTotalPageCart = document.querySelector(".order-summary__subtotal");
 const totalPageCart = document.querySelector(".order-summary__total");
 
-btnShowCart.addEventListener("click", () => {
-  cartContainer.classList.add("cart-active");
+btnShowNavbar.addEventListener("click", () => {
+  navbar.classList.add("navbar--active");
+});
+
+btnCloseNavbar.addEventListener("click", () => {
+  navbar.classList.remove("navbar--active");
+});
+
+btnShowCart.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    cartContainer.classList.add("cart--active");
+  });
 });
 
 btnCartClose.addEventListener("click", () => {
-  cartContainer.classList.remove("cart-active");
+  cartContainer.classList.remove("cart--active");
 });
 
 let cart = [];
@@ -115,15 +127,15 @@ const verCarrito = () => {
   cart.forEach((product) => {
     cartProductsContainer.innerHTML += `
     <article class="product">
-      <div class="product-image">
+      <div class="product__image">
         <img src="${product.image}" alt="" />
       </div>
       <div>
-        <div class="product-text">
+        <div class="product__text">
           <span>${product.name}</span>
           <span>${product.price}</span>
         </div>
-        <div class="quantity">
+        <div class="product__quantity">
           <button class="disminuir-unidad">-</button>
           <input type="number" value="${product.quantity}" id="${product.id}" />
           <button class="aumentar-unidad">+</button>
@@ -135,7 +147,9 @@ const verCarrito = () => {
   getDecreaseButtons(".disminuir-unidad");
   getIncreaseButtons(".aumentar-unidad");
 
-  quantityProductsCart.textContent = cart.length;
+  quantityProductsCart.forEach((quantity) => {
+    quantity.textContent = cart.length;
+  });
 
   let dineroApagar = cart.reduce(
     (acc, cartProduct) => acc + cartProduct.price * cartProduct.quantity,
@@ -221,7 +235,9 @@ const pintarContenedorCarritoPagina = () => {
   getIncreaseButtons(".aumentar-unidad-page");
   getDeleteButtons(".delete-button");
 
-  quantityProductsCart.textContent = cart.length;
+  quantityProductsCart.forEach((quantity) => {
+    quantity.textContent = cart.length;
+  });
 
   let dineroApagar = cart.reduce(
     (acc, cartProduct) => acc + cartProduct.price * cartProduct.quantity,

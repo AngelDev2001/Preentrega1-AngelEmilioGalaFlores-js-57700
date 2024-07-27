@@ -1,0 +1,185 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.625em 1em;
+  position: relative;
+
+  .btn-show-cart {
+    position: relative;
+    cursor: pointer;
+    span {
+      @include centered-element;
+      font-size: 0.5rem;
+      background-color: #000;
+      color: #fff;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      position: absolute;
+      top: -0.5rem;
+      right: -0.8rem;
+    }
+  }
+
+  .btn-show-cart-desktop {
+    display: none;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+      font-size: 2.5em;
+      text-align: center;
+    }
+
+    & > div {
+      @include centered-element;
+      gap: 2rem;
+      font-size: 1.5rem;
+    }
+  }
+
+  &__search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    input {
+      width: 100%;
+      height: 2.5rem;
+      padding: 0 2em 0 0.5em;
+      border: 1px solid #000;
+    }
+
+    .icon-search {
+      position: absolute;
+      top: 50%;
+      right: 0.5em;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.cart {
+  width: 90%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  transform: translateX(100%);
+  background-color: #fff;
+  transition: transform 0.6s ease-in-out;
+
+  &--active {
+    transform: translateX(0);
+  }
+
+  .btn-close-cart {
+    position: absolute;
+    top: 50%;
+    left: 1em;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+
+  &__content-header {
+    width: 100%;
+    height: 4em;
+    @include centered-element;
+    position: relative;
+    color: #fff;
+    background-color: #000;
+
+    h3 {
+      text-align: center;
+      justify-self: center;
+    }
+  }
+
+  &__products {
+    padding: 1em;
+  }
+}
+
+.product {
+  width: 100%;
+  display: flex;
+  padding: 0.3125em;
+  gap: 1em;
+
+  &__image {
+    width: auto;
+    height: 5em;
+    @include centered-element;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+
+    span:last-child {
+      font-weight: 700;
+    }
+  }
+
+  &__quantity {
+    width: max-content;
+    border: 1px solid #000;
+    display: flex;
+
+    button,
+    input {
+      width: 2em;
+      height: 2em;
+      border: none;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .header {
+    align-items: center;
+    flex-direction: row;
+    .btn-show-cart,
+    .btn-show-navbar {
+      display: none;
+    }
+
+    .btn-show-cart-desktop {
+      display: flex;
+    }
+
+    &__search {
+      input {
+        width: 20rem;
+      }
+    }
+  }
+
+  .cart {
+    width: 20rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .header {
+    &__search {
+      input {
+        width: 35rem;
+      }
+    }
+  }
+}

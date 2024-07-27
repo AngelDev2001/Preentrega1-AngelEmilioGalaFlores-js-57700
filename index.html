@@ -13,11 +13,21 @@
   <body>
     <div class="root">
       <header class="header">
-        <h1>Zap AG</h1>
+        <div class="header__top">
+          <h1>ZapAG</h1>
+          <div>
+            <div class="btn-show-cart">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="quantity-products-cart">0</span>
+            </div>
+            <i class="fa-solid fa-bars btn-show-navbar"></i>
+          </div>
+        </div>
         <div class="header__search">
           <input type="search" placeholder="Buscar..." />
+          <i class="fa-solid fa-magnifying-glass icon-search"></i>
         </div>
-        <nav class="header__nav">
+        <nav class="nav">
           <ul>
             <li><a href="/"></a>Inicio</li>
             <li><a href="./pages/shop.html"></a>Tienda</li>
@@ -25,38 +35,30 @@
             <li><a href="./pages/contact.html"></a>Contacto</li>
             <li><a href="./pages/blog.html"></a>Blog</li>
           </ul>
-          <div class="header__cart-icon btn-show-cart">
+          <div class="btn-show-cart btn-show-cart-desktop">
             <i class="fa-solid fa-bag-shopping"></i>
-            <span class="cantidad-productos-carrito">0</span>
+            <span class="quantity-products-cart">0</span>
           </div>
         </nav>
+        <div class="navbar">
+          <nav>
+            <i class="fa-solid fa-angle-right btn-close-navbar"></i>
+            <ul>
+              <li><a href="/">Inicio</a></li>
+              <li><a href="./pages/shop.html">Tienda</a></li>
+              <li><a href="./pages/about-us.html">Nosotros</a></li>
+              <li><a href="./pages/contact.html">Contacto</a></li>
+              <li><a href="./pages/blog.html">Blog</a></li>
+            </ul>
+          </nav>
+        </div>
         <div class="cart">
-          <div class="cart-content">
-            <div class="cart-content__header">
+          <div class="cart__content">
+            <div class="cart__content-header">
               <i class="fa-solid fa-angle-right btn-close-cart"></i>
               <h3>Carrito</h3>
             </div>
-            <div class="cart__products">
-              <!-- <article class="product">
-                <div class="product-image">
-                  <img
-                    src="https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png"
-                    alt=""
-                  />
-                </div>
-                <div>
-                  <div class="product-text">
-                    <span>Nombre del producto</span>
-                    <span>S/ 350.00</span>
-                  </div>
-                  <div class="quantity">
-                    <button>-</button>
-                    <input type="text">
-                    <button>+</button>
-                  </div>
-                </div>
-              </article> -->
-            </div>
+            <div class="cart__products"></div>
             <div class="total">Total: <span class="total-pagar"></span></div>
             <a href="./pages/cart.html">Ir a carrito</a>
           </div>
