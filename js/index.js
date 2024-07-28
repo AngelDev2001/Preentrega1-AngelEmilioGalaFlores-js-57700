@@ -1,3 +1,5 @@
+import { categories } from "../data-list/categories.js";
+
 const btnShowNavbar = document.querySelector(".btn-show-navbar");
 const btnCloseNavbar = document.querySelector(".btn-close-navbar");
 const navbar = document.querySelector(".navbar");
@@ -8,7 +10,11 @@ const btnCartClose = document.querySelector(".btn-close-cart");
 const cartContainer = document.querySelector(".cart");
 const cartProductsContainer = document.querySelector(".cart__products");
 
-const quantityProductsCart = document.querySelectorAll(".quantity-products-cart");
+const category = document.querySelector(".main__category-items");
+
+const quantityProductsCart = document.querySelectorAll(
+  ".quantity-products-cart"
+);
 const productsSection = document.querySelector(".main__products") || [];
 const totalPagar = document.querySelector(".total-pagar");
 const contenedorProductosPage = document.querySelector(
@@ -77,6 +83,15 @@ const products = [
       "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
   },
 ];
+
+categories.map((_category) => {
+  category.innerHTML += `
+  <article>
+    <img src="${_category.src}" alt="${_category.alt}" />
+    <span>${_category.title}</span>
+  </article>
+  `;
+});
 
 const renderizarProductos = () => {
   products.forEach((product) => {
