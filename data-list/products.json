@@ -1,34 +1,180 @@
-[
-  {
-    "id": "1",
-    "name": "Producto 1",
-    "description": "Producto 1",
-    "price": 36.99,
-    "quantity": 0,
-    "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-  {
-    "id": "2",
-    "name": "Producto 2",
-    "description": "Producto 2",
-    "price": 62.99,
-    "quantity": 0,
-    "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-  {
-    "id": "3",
-    "name": "Producto 3",
-    "description": "Producto 3",
-    "price": 163.99,
-    "quantity": 0,
-    "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-  {
-    "id": "4",
-    "name": "Producto 4",
-    "description": "Producto 4",
-    "price": 83.99,
-    "quantity": 0,
-    "image": "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  }
-]
+{
+  "categories": [
+    {
+      "src": "../assets/images/categories/category-running.webp",
+      "title": "Running",
+      "alt": "Zapatilla para Running"
+    },
+    {
+      "src": "../assets/images/categories/category-futbol.webp",
+      "title": "Fútbol",
+      "alt": "Zapatilla para Fútbol"
+    },
+    {
+      "src": "../assets/images/categories/category-trainning.webp",
+      "title": "Training",
+      "alt": "Zapatilla para Training"
+    },
+    {
+      "src": "../assets/images/categories/category-tenis.webp",
+      "title": "Tenis",
+      "alt": "Zapatilla para Tenis"
+    },
+    {
+      "src": "../assets/images/categories/category-skate.webp",
+      "title": "Skateboard",
+      "alt": "Zapatilla para Skateboard"
+    },
+    {
+      "src": "../assets/images/categories/category-danza.webp",
+      "title": "Danza",
+      "alt": "Zapatilla para Danza"
+    }
+  ],
+  "products": [
+    {
+      "id": "86611U-MPH",
+      "name": "Zapatillas Hombre Speciali Liga 100 Tf",
+      "brand": "Umbro",
+      "price": 139.90,
+      "category": "futbol",
+      "gender": "male",
+      "image": "./assets/images/86611U-MPH.webp"
+    },
+    {
+      "id": "86610U-MPP",
+      "name": "Zapatillas Hombre Speciali Liga 100 Ic",
+      "brand": "Ummbro",
+      "price": 139.90,
+      "category": "futbol",
+      "gender": "male",
+      "image": "./assets/images/86610U-MPP.webp"
+    },
+    {
+      "id": "81950U-MEA",
+      "name": "Zapatillas Niño Velocita Elixir League Tf - Jnr",
+      "brand": "Umbro",
+      "price": 113.94,
+      "category": "futbol",
+      "gender": "child",
+      "image": "./assets/images/81950U-MEA.webp"
+    },
+    {
+      "id": "81947U-MDX",
+      "name": "Zapatillas Niño Velocita Elixir League Fg - Jnr",
+      "brand": "Umbro",
+      "price": 113.94,
+      "category": "futbol",
+      "gender": "child",
+      "image": "./assets/images/81947U-MDX.webp"
+    },
+    {
+      "id": "A10214C-0",
+      "name": "Zapatillas Mujer Converse Pride Chuck 70",
+      "brand": "converse",
+      "price": 314.93,
+      "category": "",
+      "gender": "woman",
+      "image": "./assets/images/A10214C-0.webp"
+    },
+    {
+      "id": "A08733C-0",
+      "name": "Zapatillas Mujer Run Star Hike Platform Crafted Stitching",
+      "brand": "converse",
+      "price": 257.94,
+      "category": "",
+      "gender": "woman",
+      "image": "./assets/images/A08733C-0.webp"
+    },
+    {
+      "id": "A08752C-0",
+      "name": "Zapatillas Hombre Star Player 76",
+      "brand": "converse",
+      "price": 179.94,
+      "category": "",
+      "gender": "male",
+      "image": "./assets/images/A08752C-0.webp"
+    },
+    {
+      "id": "A09827C-0",
+      "name": "Zapatillas Hombre Cons Tobin",
+      "brand": "converse",
+      "price": 181.93,
+      "category": "",
+      "gender": "male",
+      "image": "./assets/images/A09827C-0.webp"
+    },
+    {
+      "id": "A07382C-0",
+      "name": "Zapatillas Niño Chuck Taylor All Star Malden Street Easy On",
+      "brand": "converse",
+      "price": 131.94,
+      "category": "",
+      "gender": "child",
+      "image": "./assets/images/A07382C-0.webp"
+    },
+    {
+      "id": "A07413C-0",
+      "name": "Zapatillas Niño Pro Blaze Strap",
+      "brand": "converse",
+      "price": 137.94,
+      "category": "",
+      "gender": "child",
+      "image": "./assets/images/A07413C-0.webp"
+    },
+    {
+      "id": "A08744C-0",
+      "name": "Zapatillas Niño Chuck Taylor All Star Eva Lift Platform Color Pop",
+      "brand": "converse",
+      "price": 174.93,
+      "category": "",
+      "gender": "girld",
+      "image": "./assets/images/A08744C-0.webp"
+    },
+    {
+      "id": "A08746C-0",
+      "name": "Zapatillas Niño Chuck Taylor All Star Move Seasonal Color",
+      "brand": "converse",
+      "price": 149.94,
+      "category": "converse",
+      "gender": "girld",
+      "image": "./assets/images/A08746C-0.webp"
+    },
+    {
+      "id": "1RM02611-414",
+      "name": "Zapatillas Hombre Levonte",
+      "brand": "fila",
+      "price": 299.90,
+      "category": "",
+      "gender": "male",
+      "image": "./assets/images/1RM02611-414.webp"
+    },
+    {
+      "id": "1RM02611-068",
+      "name": "Zapatillas Hombre Levonte",
+      "brand": "fila",
+      "price": 299.90,
+      "category": "",
+      "gender": "male",
+      "image": "./assets/images/1RM02611-068.webp"
+    },
+    {
+      "id": "5XM02295-134",
+      "name": "Zapatillas Mujer Twister",
+      "brand": "fila",
+      "price": 349.90,
+      "category": "",
+      "gender": "woman",
+      "image": "./assets/images/5XM02295-134.webp"
+    },
+    {
+      "id": "5XM02269-101",
+      "name": "Zapatillas Mujer Twister",
+      "brand": "fila",
+      "price": 349.90,
+      "category": "",
+      "gender": "woman",
+      "image": "./assets/images/5XM02269-101.webp"
+    }
+  ]
+}

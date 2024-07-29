@@ -1,5 +1,3 @@
-import { categories } from "../data-list/categories.js";
-
 const btnShowNavbar = document.querySelector(".btn-show-navbar");
 const btnCloseNavbar = document.querySelector(".btn-close-navbar");
 const navbar = document.querySelector(".navbar");
@@ -15,14 +13,9 @@ const category = document.querySelector(".main__category-items");
 const quantityProductsCart = document.querySelectorAll(
   ".quantity-products-cart"
 );
-const productsSection = document.querySelector(".main__products") || [];
-const totalPagar = document.querySelector(".total-pagar");
-const contenedorProductosPage = document.querySelector(
-  ".shopping-cart-container .products-container .products"
-);
 
-const subTotalPageCart = document.querySelector(".order-summary__subtotal");
-const totalPageCart = document.querySelector(".order-summary__total");
+const productsSection = document.querySelector(".products");
+const totalPagar = document.querySelector(".total-pagar");
 
 btnShowNavbar.addEventListener("click", () => {
   navbar.classList.add("navbar--active");
@@ -42,63 +35,14 @@ btnCartClose.addEventListener("click", () => {
   cartContainer.classList.remove("cart--active");
 });
 
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-window.addEventListener("DOMContentLoaded", () => {
-  renderizarProductos();
-  let productosLocalStorage = JSON.parse(localStorage.getItem("cart"));
-  cart = [...productosLocalStorage];
-  console.log(productosLocalStorage);
-  verCarrito();
-  pintarContenedorCarritoPagina();
-});
-
-const products = [
-  {
-    id: "1",
-    name: "Producto 1",
-    price: 36.99,
-    image:
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-  {
-    id: "2",
-    name: "Producto 2",
-    price: 62.99,
-    image:
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-  {
-    id: "3",
-    name: "Producto 3",
-    price: 163.99,
-    image:
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-  {
-    id: "4",
-    name: "Producto 4",
-    price: 83.99,
-    image:
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/b1bcbca4-e853-4df7-b329-5be3c61ee057/dunk-low-retro-zapatillas-wwlDHh.png",
-  },
-];
-
-categories.map((_category) => {
-  category.innerHTML += `
-  <article>
-    <img src="${_category.src}" alt="${_category.alt}" />
-    <span>${_category.title}</span>
-  </article>
-  `;
-});
-
-const renderizarProductos = () => {
+const renderizarProductos = (products) => {
   products.forEach((product) => {
     productsSection.innerHTML += `
-    <article class="main__product">
+    <article class="product">
       <img src="${product.image}" alt="" />
-      <div class="main__product-text">
+      <div class="product__text">
         <span>${product.name}</span>
         <span>${product.price}</span>
       </div>
@@ -109,6 +53,38 @@ const renderizarProductos = () => {
   getButtonsPoducts(".product-button");
 };
 
+const fetchProducts = async () => {
+  const response = await fetch("../data-list/products.json");
+  const data = await response.json();
+  console.log(data.products);
+  renderizarProductos(data.products);
+  renderizarCategories(data.categories);
+};
+
+const getProduct = async (productId) => {
+  const response = await fetch("../data-list/products.json");
+  const data = await response.json();
+  let product = await data.products.find(
+    (_product) => _product.id === productId
+  );
+
+  await cart.push({ quantity: 1, ...product });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  verCarrito();
+  console.log(cart);
+};
+
+const renderizarCategories = (categories) => {
+  categories.map((_category) => {
+    category.innerHTML += `
+    <article>
+      <img src="${_category.src}" alt="${_category.alt}" />
+      <span>${_category.title}</span>
+    </article>
+    `;
+  });
+};
+
 const getButtonsPoducts = (buttons) => {
   let buttonsProducts = document.querySelectorAll(buttons);
   agregarProducto(buttonsProducts);
@@ -117,21 +93,20 @@ const getButtonsPoducts = (buttons) => {
 const agregarProducto = (buttonsProducts) => {
   buttonsProducts.forEach((button) => {
     button.addEventListener("click", (e) => {
+      console.log(cart);
       let existsProduct = cart.find(
         (cartProduct) => cartProduct.id === e.target.id
       );
 
+      console.log(existsProduct);
+
       if (existsProduct) {
         existsProduct.quantity++;
+        localStorage.setItem("cart", JSON.stringify(cart));
+        verCarrito();
       } else {
-        let product = products.find((_product) => _product.id === e.target.id);
-        cart.push({ quantity: 1, ...product });
+        getProduct(e.target.id);
       }
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      verCarrito();
-      pintarContenedorCarritoPagina();
-      console.log(cart);
     });
   });
 };
@@ -204,81 +179,8 @@ const btnChangeQuantity = (element, activity) => {
   });
 };
 
-const pintarContenedorCarritoPagina = () => {
-  contenedorProductosPage.innerHTML = "";
-  cart.forEach((producto) => {
-    contenedorProductosPage.innerHTML += `
-  <article>
-    <div class="product-image">
-      <img
-      src="${producto.image}"
-      alt=""
-      />
-    </div>
-    <div class="product-details">
-      <div>
-        <span class="product-details__name">${producto.name}</span>
-        <div>
-          <span>S/ </span>
-          <span class="product-details__price-by-unit">${producto.price}</span>
-        </div>
-      </div>
-      <div class="product-details__quantity">
-        <div>
-          <button class="disminuir-unidad-page">-</button>
-          <input type="number" value="${producto.quantity}" id="${
-      producto.id
-    }" />
-          <button class="aumentar-unidad-page">+</button>
-        </div>
-        <div>
-          <span>S/ </span>
-          <span class="product-details__total-price">${
-            producto.quantity * producto.price
-          }</span>
-        </div>
-      </div>
-    </div>
-    <div>
-      <i class="fa-solid fa-trash delete-button ${producto.id}"></i>
-    </div>
-  </article>
-`;
-  });
-
-  getDecreaseButtons(".disminuir-unidad-page");
-  getIncreaseButtons(".aumentar-unidad-page");
-  getDeleteButtons(".delete-button");
-
-  quantityProductsCart.forEach((quantity) => {
-    quantity.textContent = cart.length;
-  });
-
-  let dineroApagar = cart.reduce(
-    (acc, cartProduct) => acc + cartProduct.price * cartProduct.quantity,
-    0
-  );
-
-  subTotalPageCart.textContent = dineroApagar.toFixed(2);
-  totalPageCart.textContent = dineroApagar.toFixed(2);
-  console.log(cart);
-};
-
-const getDeleteButtons = (buttons) => {
-  let btnDelete = document.querySelectorAll(buttons);
-  deleteProduct(btnDelete);
-};
-
-const deleteProduct = (btnDelete) => {
-  btnDelete.forEach((_btnDelete) => {
-    _btnDelete.addEventListener("click", (e) => {
-      cart = cart.filter(
-        (cartProduct) => cartProduct.id !== e.target.classList[3]
-      );
-
-      localStorage.setItem("cart", JSON.stringify(cart));
-      verCarrito();
-      pintarContenedorCarritoPagina();
-    });
-  });
-};
+window.addEventListener("DOMContentLoaded", () => {
+  fetchProducts();
+  verCarrito();
+  pintarContenedorCarritoPagina();
+});
