@@ -13,26 +13,40 @@
   <body>
     <div class="root">
       <header class="header">
-        <h1>Zap AG</h1>
+        <div class="header__top">
+          <h1>ZapAG</h1>
+          <div>
+            <div class="btn-show-cart">
+              <i class="fa-solid fa-bag-shopping"></i>
+              <span class="quantity-products-cart">0</span>
+            </div>
+            <i class="fa-solid fa-bars btn-show-navbar"></i>
+          </div>
+        </div>
         <div class="header__search">
           <input type="search" placeholder="Buscar..." />
+          <i class="fa-solid fa-magnifying-glass icon-search"></i>
         </div>
-        <nav class="header__nav">
+        <nav class="nav">
           <ul>
-            <li><a href="/"></a>Inicio</li>
-            <li><a href="/shop"></a>Tienda</li>
-            <li><a href="/about-us"></a>Nosotros</li>
-            <li><a href="/contact"></a>Contacto</li>
-            <li><a href="/blog"></a>Blog</li>
+            <li><a href="/">Inicio</a></li>
           </ul>
-          <div class="header__cart-icon btn-show-cart">
+          <div class="btn-show-cart btn-show-cart-desktop">
             <i class="fa-solid fa-bag-shopping"></i>
-            <span class="cantidad-productos-carrito">0</span>
+            <span class="quantity-products-cart">0</span>
           </div>
         </nav>
+        <div class="navbar">
+          <nav>
+            <i class="fa-solid fa-angle-right btn-close-navbar"></i>
+            <ul>
+              <li><a href="/">Inicio</a></li>
+            </ul>
+          </nav>
+        </div>
         <div class="cart">
-          <div class="cart-content">
-            <div class="cart-content__header">
+          <div class="cart__content">
+            <div class="cart__content-header">
               <i class="fa-solid fa-angle-right btn-close-cart"></i>
               <h3>Carrito</h3>
             </div>
@@ -46,7 +60,7 @@
         <section class="shopping-cart-container">
           <div class="products-container">
             <h2>Mi carrito</h2>
-            <div class="products"></div>
+            <div class="products-cart"></div>
           </div>
           <div class="order-summary">
             <h2>Resumen del pedido</h2>
@@ -54,14 +68,14 @@
               <span>Subtotal</span>
               <div>
                 <span>S/</span>
-                <span class="order-summary__subtotal">25.00</span>
+                <span class="order-summary__subtotal">0.00</span>
               </div>
             </div>
             <div>
               <span>Total</span>
               <div>
                 <span>S/</span>
-                <span class="order-summary__total">25.00</span>
+                <span class="order-summary__total">0.00</span>
               </div>
             </div>
             <button>Finalizar Compra</button>
@@ -70,6 +84,7 @@
       </main>
       <footer class="footer"></footer>
     </div>
-    <script src="../js/index.js"></script>
+    <script src="./js/index.js"></script>
+    <script src="./js/shoppingCartDetails.js"></script>
   </body>
 </html>

@@ -29,11 +29,7 @@
         </div>
         <nav class="nav">
           <ul>
-            <li><a href="/"></a>Inicio</li>
-            <li><a href="./pages/shop.html"></a>Tienda</li>
-            <li><a href="./pages/about-us.html"></a>Nosotros</li>
-            <li><a href="./pages/contact.html"></a>Contacto</li>
-            <li><a href="./pages/blog.html"></a>Blog</li>
+            <li><a href="/">Inicio</a></li>
           </ul>
           <div class="btn-show-cart btn-show-cart-desktop">
             <i class="fa-solid fa-bag-shopping"></i>
@@ -45,10 +41,6 @@
             <i class="fa-solid fa-angle-right btn-close-navbar"></i>
             <ul>
               <li><a href="/">Inicio</a></li>
-              <li><a href="./pages/shop.html">Tienda</a></li>
-              <li><a href="./pages/about-us.html">Nosotros</a></li>
-              <li><a href="./pages/contact.html">Contacto</a></li>
-              <li><a href="./pages/blog.html">Blog</a></li>
             </ul>
           </nav>
         </div>
@@ -60,7 +52,9 @@
             </div>
             <div class="cart__products"></div>
             <div class="total">Total: <span class="total-pagar"></span></div>
-            <a href="./pages/cart.html">Ir a carrito</a>
+            <div class="btn-cart">
+              <a href="./cart.html">Ir a carrito</a>
+            </div>
           </div>
         </div>
       </header>
@@ -77,14 +71,14 @@
           <h2>Nuestras Categorías</h2>
           <div class="main__category-items"></div>
         </section>
-        <section class="main__products-section">
-          <h3>Tendencias de la Semana</h3>
-          <div class="main__products"></div>
+        <section class="main__products">
+          <h2>Tendencias de la Semana</h2>
+          <div class="products"></div>
         </section>
       </main>
       <footer class="footer"></footer>
     </div>
 
-    <script type="module" src="./js/index.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

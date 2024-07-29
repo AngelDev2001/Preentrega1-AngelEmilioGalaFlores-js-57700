@@ -1,31 +1,31 @@
 export const categories = [
   {
-    src: "../assets/images/category-running.webp",
+    src: "../assets/images/categories/category-running.webp",
     title: "Running",
     alt: "Zapatilla para Running",
   },
   {
-    src: "../assets/images/category-futbol.webp",
+    src: "../assets/images/categories/category-futbol.webp",
     title: "Fútbol",
     alt: "Zapatilla para Fútbol",
   },
   {
-    src: "../assets/images/category-trainning.webp",
+    src: "../assets/images/categories/category-trainning.webp",
     title: "Training",
     alt: "Zapatilla para Training",
   },
   {
-    src: "../assets/images/category-tenis.webp",
+    src: "../assets/images/categories/category-tenis.webp",
     title: "Tenis",
     alt: "Zapatilla para Tenis",
   },
   {
-    src: "../assets/images/category-skate.webp",
+    src: "../assets/images/categories/category-skate.webp",
     title: "Skateboard",
     alt: "Zapatilla para Skateboard",
   },
   {
-    src: "../assets/images/category-danza.webp",
+    src: "../assets/images/categories/category-danza.webp",
     title: "Danza",
     alt: "Zapatilla para Danza",
   },

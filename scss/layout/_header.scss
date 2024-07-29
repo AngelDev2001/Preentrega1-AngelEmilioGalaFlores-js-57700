@@ -103,7 +103,28 @@
   }
 
   &__products {
+    height: 35rem;
     padding: 1em;
+    overflow-y: scroll;
+  }
+
+  .total {
+    padding: 0 1rem;
+  }
+
+  .btn-cart {
+    margin-top: 1rem;
+    padding: 0 1rem;
+    a {
+      width: 100%;
+      height: 2.5rem;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      color: #fff;
+    }
   }
 }
 
