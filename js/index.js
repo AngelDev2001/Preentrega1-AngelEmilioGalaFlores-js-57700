@@ -8,13 +8,10 @@ const btnCartClose = document.querySelector(".btn-close-cart");
 const cartContainer = document.querySelector(".cart");
 const cartProductsContainer = document.querySelector(".cart__products");
 
-const category = document.querySelector(".main__category-items");
-
 const quantityProductsCart = document.querySelectorAll(
   ".quantity-products-cart"
 );
 
-const productsSection = document.querySelector(".products");
 const totalPagar = document.querySelector(".total-pagar");
 
 btnShowNavbar.addEventListener("click", () => {
@@ -37,30 +34,6 @@ btnCartClose.addEventListener("click", () => {
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-const renderizarProductos = (products) => {
-  products.forEach((product) => {
-    productsSection.innerHTML += `
-    <article class="product">
-      <img src="${product.image}" alt="" />
-      <div class="product__text">
-        <span>${product.name}</span>
-        <span>${product.price}</span>
-      </div>
-      <button class="product-button" id="${product.id}">Agregar al carrito</button>
-    </article>`;
-  });
-
-  getButtonsPoducts(".product-button");
-};
-
-const fetchProducts = async () => {
-  const response = await fetch("../data-list/products.json");
-  const data = await response.json();
-  console.log(data.products);
-  renderizarProductos(data.products);
-  renderizarCategories(data.categories);
-};
-
 const getProduct = async (productId) => {
   const response = await fetch("../data-list/products.json");
   const data = await response.json();
@@ -71,44 +44,6 @@ const getProduct = async (productId) => {
   await cart.push({ quantity: 1, ...product });
   localStorage.setItem("cart", JSON.stringify(cart));
   verCarrito();
-  console.log(cart);
-};
-
-const renderizarCategories = (categories) => {
-  categories.map((_category) => {
-    category.innerHTML += `
-    <article>
-      <img src="${_category.src}" alt="${_category.alt}" />
-      <span>${_category.title}</span>
-    </article>
-    `;
-  });
-};
-
-const getButtonsPoducts = (buttons) => {
-  let buttonsProducts = document.querySelectorAll(buttons);
-  agregarProducto(buttonsProducts);
-};
-
-const agregarProducto = (buttonsProducts) => {
-  buttonsProducts.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      console.log(cart);
-      let existsProduct = cart.find(
-        (cartProduct) => cartProduct.id === e.target.id
-      );
-
-      console.log(existsProduct);
-
-      if (existsProduct) {
-        existsProduct.quantity++;
-        localStorage.setItem("cart", JSON.stringify(cart));
-        verCarrito();
-      } else {
-        getProduct(e.target.id);
-      }
-    });
-  });
 };
 
 const verCarrito = () => {
@@ -180,7 +115,5 @@ const btnChangeQuantity = (element, activity) => {
 };
 
 window.addEventListener("DOMContentLoaded", () => {
-  fetchProducts();
   verCarrito();
-  pintarContenedorCarritoPagina();
 });

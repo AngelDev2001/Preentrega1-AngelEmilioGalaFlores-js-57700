@@ -61,7 +61,6 @@ const pintarContenedorCarritoPagina = () => {
 
   subTotalPageCart.textContent = dineroApagar.toFixed(2);
   totalPageCart.textContent = dineroApagar.toFixed(2);
-  console.log(cart);
 };
 
 const getDeleteButtons = (buttons) => {
@@ -82,3 +81,7 @@ const deleteProduct = (btnDelete) => {
     });
   });
 };
+
+window.addEventListener("DOMContentLoaded", () => {
+  pintarContenedorCarritoPagina();
+});
